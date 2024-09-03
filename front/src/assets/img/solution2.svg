@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="566" height="498" viewBox="0 0 566 498" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#filter0_b_152_2646)">
+    <rect width="566" height="498" rx="16" fill="url(#paint0_linear_152_2646)"/>
+    <rect x="0.5" y="0.5" width="565" height="497" rx="15.5" stroke="url(#paint1_linear_152_2646)"/>
+  </g>
+  <mask id="mask0_152_2646" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="566" height="498">
+    <rect width="566" height="498" rx="16" fill="black"/>
+  </mask>
+  <g mask="url(#mask0_152_2646)">
+    <circle cx="283" cy="249" r="79.5" stroke="#1F1F33"/>
+    <circle cx="283" cy="249" r="111.5" stroke="#1F1F33"/>
+    <circle cx="283" cy="249" r="143.5" stroke="#1F1F33"/>
+    <circle cx="283" cy="249" r="175.5" stroke="#1F1F33"/>
+    <circle cx="283" cy="249" r="207.5" stroke="#1F1F33"/>
+    <circle cx="283" cy="249" r="239.5" stroke="#1F1F33"/>
+    <circle cx="283" cy="249" r="271.5" stroke="#1F1F33"/>
+    <circle cx="283" cy="249" r="303.5" stroke="#1F1F33"/>
+    <circle cx="283" cy="249" r="335.5" stroke="#1F1F33"/>
+    <circle cx="283" cy="249" r="367.5" stroke="#1F1F33"/>
+  </g>
+  <path d="M316 416.5C316 434.725 301.225 449.5 283 449.5C264.775 449.5 250 434.725 250 416.5C250 398.274 264.775 383.5 283 383.5C301.225 383.5 316 398.274 316 416.5Z" fill="#1F1F33" stroke="#27273F"/>
+  <path d="M316 81.5C316 99.7253 301.225 114.5 283 114.5C264.775 114.5 250 99.7253 250 81.5C250 63.2746 264.775 48.5 283 48.5C301.225 48.5 316 63.2746 316 81.5Z" fill="#1F1F33" stroke="#27273F"/>
+  <circle cx="164.703" cy="366.516" r="33" transform="rotate(45 164.703 366.516)" fill="#1F1F33" stroke="#27273F"/>
+  <circle cx="401.297" cy="129.923" r="33" transform="rotate(45 401.297 129.923)" fill="#1F1F33" stroke="#27273F"/>
+  <path d="M115.5 282C97.2747 282 82.5001 267.225 82.5001 249C82.5001 230.774 97.2747 216 115.5 216C133.725 216 148.5 230.774 148.5 249C148.5 267.225 133.725 282 115.5 282Z" fill="#1F1F33" stroke="#27273F"/>
+  <path d="M450.5 282C432.275 282 417.5 267.225 417.5 249C417.5 230.774 432.275 216 450.5 216C468.725 216 483.5 230.774 483.5 249C483.5 267.225 468.725 282 450.5 282Z" fill="#1F1F33" stroke="#27273F"/>
+  <circle cx="164.437" cy="130.703" r="33" transform="rotate(135 164.437 130.703)" fill="#1F1F33" stroke="#27273F"/>
+  <circle cx="401.03" cy="367.297" r="33" transform="rotate(135 401.03 367.297)" fill="#1F1F33" stroke="#27273F"/>
+  <circle cx="283" cy="249" r="49.75" fill="url(#paint6_linear_152_2646)"/>
+  <circle cx="283" cy="249" r="49.75" stroke="url(#paint7_linear_152_2646)" style="mix-blend-mode:multiply"/>
+  <defs>
+    <filter id="filter0_b_152_2646" x="-16" y="-16" width="598" height="530" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feGaussianBlur in="BackgroundImageFix" stdDeviation="8"/>
+      <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_152_2646"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_152_2646" result="shape"/>
+    </filter>
+    <linearGradient id="paint0_linear_152_2646" x1="283" y1="0" x2="283" y2="498" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8D8DB9" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#08080C" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear_152_2646" x1="283" y1="0" x2="283" y2="498" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8D8DB9" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#08080C" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="paint6_linear_152_2646" x1="232.75" y1="198.75" x2="344.912" y2="214.115" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A570FF"/>
+      <stop offset="0.5" stop-color="#FF6EB2"/>
+      <stop offset="1" stop-color="#FFAD66"/>
+    </linearGradient>
+    <linearGradient id="paint7_linear_152_2646" x1="232.75" y1="198.75" x2="344.912" y2="214.115" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A570FF"/>
+      <stop offset="0.5" stop-color="#FF6EB2"/>
+      <stop offset="1" stop-color="#FFAD66"/>
+    </linearGradient>
+  </defs>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="262.962" y="260.054">🤗</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="144.862" y="140.79">🤖</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="264.686" y="90.466">🤖</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="383.95" y="139.917">🤖</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="432.236" y="258.599">🤖</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="383.949" y="376.7">🤖</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="265.267" y="427.896">🤖</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="146.002" y="376.7">🤖</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="95.388" y="258.599">🤖</text>
+</svg>
