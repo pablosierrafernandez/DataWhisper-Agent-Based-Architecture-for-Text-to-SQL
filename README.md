@@ -1,9 +1,26 @@
 # **DataWhisper Arquitectura Basada En Agentes Para** _**Text-to-SQL**_
 
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/dedadc5f-e7ec-41c7-8374-208cb75a0896" alt="LOGO" width="300"/>
-</p>
+
+
+
+
+
+![DataWhisper Arquitectura Basada En Agentes Para Text-to-SQL-1](https://github.com/user-attachments/assets/1a5a38e9-787d-41c8-8ca2-1cc049999060)
+![DataWhisper Arquitectura Basada En Agentes Para Text-to-SQL-2](https://github.com/user-attachments/assets/48ca4772-abc6-459c-8fd8-742ff3710093)
+![DataWhisper Arquitectura Basada En Agentes Para Text-to-SQL-3](https://github.com/user-attachments/assets/b691e454-ed81-44e5-aac0-51a83edec02c)
+![DataWhisper Arquitectura Basada En Agentes Para Text-to-SQL-4](https://github.com/user-attachments/assets/74c1ff0b-019c-4791-9965-dcdbe803be6e)
+![DataWhisper Arquitectura Basada En Agentes Para Text-to-SQL-5](https://github.com/user-attachments/assets/e05e7300-865d-4e7f-83ad-185d568ce39a)
+![DataWhisper Arquitectura Basada En Agentes Para Text-to-SQL-6](https://github.com/user-attachments/assets/96d7113e-41df-4b35-b58a-e6ae96116ccb)
+![DataWhisper Arquitectura Basada En Agentes Para Text-to-SQL-7](https://github.com/user-attachments/assets/079de604-92ec-4fbc-a0ab-64933064775a)
+![DataWhisper Arquitectura Basada En Agentes Para Text-to-SQL-8](https://github.com/user-attachments/assets/99e8e21f-ec0c-420f-b5be-501c9ea70d36)
+![DataWhisper Arquitectura Basada En Agentes Para Text-to-SQL-9](https://github.com/user-attachments/assets/4723d8a0-861d-4e5c-93ee-6ddec1a2c7f5)
+![DataWhisper Arquitectura Basada En Agentes Para Text-to-SQL-10](https://github.com/user-attachments/assets/a5d89edd-a6b0-41f3-aefb-a30b652a1687)
+![DataWhisper Arquitectura Basada En Agentes Para Text-to-SQL-11](https://github.com/user-attachments/assets/b395415e-dfac-483e-bf72-357ac50cd31a)
+![DataWhisper Arquitectura Basada En Agentes Para Text-to-SQL-12](https://github.com/user-attachments/assets/a1ce491b-0df8-4a22-b71b-2f8a1e9bd1fb)
+
+
+https://github.com/user-attachments/assets/052d7e0c-c3a0-42be-b2a5-287801852849
 
 ![](https://img.shields.io/badge/URV-Universitat_Rovira_i_Virgili-red)
 
