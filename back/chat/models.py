@@ -9,7 +9,7 @@ class Message(models.Model):
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
     prompt = models.TextField(null=True, blank=True)  
-
+    sql = models.TextField(null=True, blank=True)  
     def __str__(self):
         return f"{self.sender}: {self.content[:50]}"  
 

@@ -23,7 +23,10 @@
             </table>
           </div>
           <p v-else>{{ message.content }}</p>
-
+        <!-- Mostrar SQL si está disponible -->
+<div v-if="message.sql" class="sql-info">
+   <pre>{{ message.sql }}</pre>
+</div>
           <!-- Mostrar coste si está disponible -->
           <div v-if="message.cost" class="cost-info">
             <strong>Cost:</strong> {{ message.cost }}
@@ -207,15 +210,16 @@ const submitMessage = async () => {
 
   try {
     const response = await axios.post('http://127.0.0.1:8000/chat/run-script/', { prompt });
-
+    console.log(response)
     const aiMessage = {
       id: response.data.id || Date.now() + Math.random().toString(36).substring(2, 9),
-      sender: 'Assistify',
+      sender: 'DataWhisper',
       content: response.data.content,
       timestamp: response.data.timestamp || new Date().toISOString(),
       isTyping: false,
-      insights: response.data.insights || [],
-      cost: response.data.cost || 'N/A'  // Añade el coste aquí
+      insights: response.data.insights || '',
+      cost: response.data.cost || 'N/A',  // Añade el coste aquí
+      sql: response.data.sql || 'N/A'
     };
 
     messages.value = [...messages.value, aiMessage];
@@ -261,14 +265,14 @@ onMounted(() => {
 </script>
 
 <style>
-/* Estilo para los mensajes del sistema */
+
 .hero-chat-item-content.system {
   background-color: #ff6e6e33; 
   color: #ff6e6e; 
   border: 1px solid #ff6e6e; 
 }
 
-/* Estilo adicional para la fuente del sistema */
+
 .hero-chat-item-content.system h3 {
   color: #ff6e6e; 
 }
@@ -277,7 +281,7 @@ onMounted(() => {
   color: #ff6e6e; 
 }
 
-/* Estilos del chat y la tabla */
+
 .hero-chat-list {
   max-height: 400px;
   overflow-y: auto;
@@ -328,7 +332,7 @@ onMounted(() => {
   line-height: 1.6;
 }
 
-/* Estilos para los insights */
+
 .insights {
   margin-top: 10px;
   
@@ -366,7 +370,7 @@ onMounted(() => {
   background-color: #ff6eb223;
 }
 
-/* Skeleton Loader Manual */
+
 .skeleton-loader {
   margin-top: 10px;
 }
@@ -406,7 +410,7 @@ onMounted(() => {
 }
 
 
-/* Estilos del botón de borrar historial */
+
 .clear-history-btn {
   background-color: transparent;
   border: none;
@@ -428,4 +432,28 @@ onMounted(() => {
   font-size: 14px;
   color: #b9f3e5;
 }
+.sql-info {
+  margin-top: 10px;
+  
+  
+  border-radius: 8px;
+  color: #9fc2e9; 
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  
+  white-space: pre-wrap; 
+  word-wrap: break-word; 
+}
+
+
+
+.sql-info pre {
+  margin: 10px 0 0 0;
+  color: #e6e6e6; 
+  background-color: #2a2a2a; 
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
 </style>

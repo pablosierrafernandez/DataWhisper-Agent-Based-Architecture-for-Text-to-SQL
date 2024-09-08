@@ -271,7 +271,7 @@ def main(prompt):
                         agents=data_engineering_agents, tables_def= table_definitions
                     )
                    
-                    messages = data_eng_orchestrator.sequential_conversation(prompt)
+                    messages, sql = data_eng_orchestrator.sequential_conversation(prompt)
 
                     total_tokens+=count_tokens(str(messages), model="gpt-3.5-turbo")
                    
@@ -318,7 +318,7 @@ def main(prompt):
     end_time = time.time()  
     elapsed_time = end_time - start_time  # Calcular el tiempo transcurrido
     print(f"Time taken to execute main: {elapsed_time:.2f} seconds")
-    return "OK", total_cost
+    return "OK", total_cost, sql
 
 if __name__ == "__main__":
     main(sys.argv[1])

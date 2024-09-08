@@ -2,7 +2,7 @@ import json
 import re
 from typing import List, Optional, Tuple
 import autogen
-
+sql = ""
 def is_empty_result(content):
     try:
         result = json.loads(content)
@@ -193,19 +193,41 @@ class Orchestrator:
            
             if self.last_message_is_string:
                 self.basic_chat(agent_a, agent_b, self.latest_message)
+                print("ULTIMO--> ",self.latest_message)
+                arguments=""
+                try:
+                   
+                    arguments = self.latest_message.get('function_call', {}).get('arguments', "")
+                    print("ARGS--> ", arguments)
+                    
+                    arguments_dict = json.loads(arguments)
+
+                    
+                    consulta_sql = arguments_dict.get("sql", "")
+
+                  
+                    global sql 
+                    sql = consulta_sql
+                    
+                except:
+                    pass
+              
+                    
             if self.last_message_is_func_call and self.has_functions(agent_a):
                 self.function_chat(agent_a, agent_b, self.latest_message, self.agents[idx-1])
+                
 
             if idx == self.total_agents - 1:
                
                 
                 
                
-                # Guardar la respuesta final en un archivo JSON formateado
+               
                 self.save_final_response(self.latest_message)
+                print("ULTIMO-> ",self.latest_message)
                 del self.messages[-1]
 
-                return self.messages
+                return self.messages, sql
 
     
         
