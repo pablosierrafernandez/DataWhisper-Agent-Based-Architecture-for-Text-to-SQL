@@ -1,4 +1,4 @@
-# **DataWhisper Arquitectura Basada En Agentes Para** _**Text-to-SQL**_
+# DataWhisper: Agent-Based Architecture for *Text-to-SQL*
 
 
 
