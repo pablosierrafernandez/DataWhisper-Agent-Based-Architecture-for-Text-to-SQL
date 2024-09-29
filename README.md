@@ -24,216 +24,220 @@ https://github.com/user-attachments/assets/052d7e0c-c3a0-42be-b2a5-287801852849
 
 ![](https://img.shields.io/badge/URV-Universitat_Rovira_i_Virgili-red)
 
-## Índice
+Here's the translation to English:
 
-1.  [Introducción](#introducci%C3%B3n)
-2.  [Objetivo](#objetivo)
-3.  [Características](#caracter%C3%ADsticas)
-4.  [Arquitectura](#arquitectura)
-    *   [Agente Proxy (Evaluador de NLQ)](#agente-proxy-evaluador-de-nlq)
-    *   [Agente Selector (Selección de Tablas)](#agente-selector-selecci%C3%B3n-de-tablas)
-    *   [Agentes Analistas (Iteración y Corrección)](#agentes-analistas-iteraci%C3%B3n-y-correcci%C3%B3n)
-    *   [Agente Explorer (Generador de Insights)](#agente-explorer-generador-de-insights)
-5.  [Requisitos](#requisitos)
-6.  [Aplicación](#aplicaci%C3%B3n)
-    *   [Backend en Django](#backend-en-django)
-    *   [Frontend en Vue.js con Vite](#frontend-en-vuejs-con-vite)
-7.  [Instrucciones de Uso](#instrucciones-de-uso)
-    *   [Manual (sin Docker)](#manual-sin-docker)
-    *   [Automático](#autom%C3%A1tico)
-8.  [Contribución](#contribuci%C3%B3n)
-9.  [Licencia](#licencia)
-10.  [Autores](#autores)
+Here's the translation to English:
 
-## Introducción
+## Index
 
-La necesidad de sistemas que permitan a los usuarios sin conocimientos técnicos generar consultas SQL precisas es cada vez más crítica en la era de los datos. Aunque SQL es un lenguaje poderoso y versátil, su uso requiere un entendimiento profundo de las estructuras de datos y las relaciones entre tablas en una base de datos. Este requisito técnico ha sido una barrera para muchos usuarios que necesitan acceder a la información contenida en bases de datos.
+1.  [Introduction](#introduction)
+2.  [Objective](#objective)
+3.  [Features](#features)
+4.  [Architecture](#architecture)
+    *   [Proxy Agent (NLQ Evaluator)](#proxy-agent-nlq-evaluator)
+    *   [Selector Agent (Table Selection)](#selector-agent-table-selection)
+    *   [Analyst Agents (Iteration and Correction)](#analyst-agents-iteration-and-correction)
+    *   [Explorer Agent (Insights Generator)](#explorer-agent-insights-generator)
+5.  [Requirements](#requirements)
+6.  [Application](#application)
+    *   [Backend in Django](#backend-in-django)
+    *   [Frontend in Vue.js with Vite](#frontend-in-vuejs-with-vite)
+7.  [Usage Instructions](#usage-instructions)
+    *   [Manual (without Docker)](#manual-without-docker)
+    *   [Automatic](#automatic)
+8.  [Contribution](#contribution)
+9.  [License](#license)
+10.  [Authors](#authors)
 
-Este proyecto aborda este problema desarrollando un sistema que traduce consultas en lenguaje natural a SQL utilizando una arquitectura de agentes inteligentes. Estos agentes trabajan de manera coordinada para identificar las tablas relevantes, generar consultas SQL, ejecutar las consultas y, finalmente, proporcionar _insights_ adicionales basados en los resultados obtenidos. 
+## Introduction
+
+The need for systems that allow users without technical knowledge to generate accurate SQL queries is becoming increasingly critical in the data era. While SQL is a powerful and versatile language, its use requires a deep understanding of data structures and relationships between tables in a database. This technical requirement has been a barrier for many users who need access to the information stored in databases.
+
+This project addresses this problem by developing a system that translates natural language queries into SQL using an intelligent agent-based architecture. These agents work in coordination to identify relevant tables, generate SQL queries, execute the queries, and ultimately provide additional insights based on the obtained results. 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/85066ab8-e053-4342-9b99-012882a89335"/>
 </p>
 
-**Figura 1:** Interfaz Web - DataWhisper
+**Figure 1:** Web Interface - DataWhisper
 
-## Objetivo
+## Objective
 
-El objetivo principal de este proyecto es transformar la forma en que los usuarios interactúan con las bases de datos relacionales, facilitando la generación, evaluación y ejecución de consultas SQL a partir de entradas en lenguaje natural. Este sistema está diseñado para reducir las barreras técnicas, mejorar la accesibilidad para usuarios no técnicos y proporcionar una solución eficiente para la gestión y análisis de datos.
+The primary goal of this project is to transform how users interact with relational databases, facilitating the generation, evaluation, and execution of SQL queries from natural language inputs. This system is designed to reduce technical barriers, improve accessibility for non-technical users, and provide an efficient solution for data management and analysis.
 
-## Características
+## Features
 
-1.  **Facilita la interacción con bases de datos**: Permite a los usuarios generar consultas SQL precisas y optimizadas utilizando lenguaje natural, sin necesidad de conocimientos técnicos avanzados en SQL.
-2.  **Implementa un sistema multi-agente**: Arquitectura de agentes inteligentes que colaboran para llevar a cabo tareas específicas dentro del proceso de generación de consultas SQL, como la selección de tablas, la generación de consultas, la iteración y corrección de errores, y la generación de _insights_.
-3.  **Interfaz web accesible y fácil de usar**: Permite a los usuarios interactuar con el sistema de manera intuitiva, incluyendo la generación de consultas SQL, la visualización de resultados y la configuración de preferencias personalizadas.
-4.  **Optimización y reducción de los costos**: Permite seleccionar los modelos para optimizar los recursos según el caso que se desee.
-5.  **Garantiza la seguridad y la integridad de la base de datos**: Implementa medidas de seguridad efectivas contra ataques como la inyección de comandos o _prompt injection_, protegiendo la integridad de la base de datos.
+1.  **Facilitates interaction with databases**: Allows users to generate precise and optimized SQL queries using natural language, without needing advanced technical knowledge of SQL.
+2.  **Implements a multi-agent system**: An architecture of intelligent agents that collaborate to perform specific tasks within the SQL query generation process, such as table selection, query generation, error iteration and correction, and the generation of insights.
+3.  **Accessible and user-friendly web interface**: Allows users to interact with the system intuitively, including generating SQL queries, viewing results, and configuring personalized preferences.
+4.  **Optimization and cost reduction**: Allows users to select models to optimize resources based on the specific use case.
+5.  **Ensures database security and integrity**: Implements effective security measures against attacks like command or prompt injection, protecting the database's integrity.
 
-## Arquitectura
+## Architecture
 
-La arquitectura del sistema se compone de varios agentes inteligentes, cada uno de los cuales está diseñado para realizar tareas específicas en el proceso de generación y ejecución de consultas SQL. Estos agentes trabajan de manera colaborativa bajo la supervisión de un orquestador que asegura la correcta secuencialidad y coordinación de las tareas.
+The system's architecture is composed of several intelligent agents, each designed to perform specific tasks in the SQL query generation and execution process. These agents work collaboratively under the supervision of an orchestrator that ensures the correct sequence and coordination of tasks.
 
 ![Architecture (1)](https://github.com/user-attachments/assets/d6120b71-354c-4245-9f60-4e1543437681)
 
-**Figura 2:** Arquitectura
+**Figure 2:** Architecture
 
-### Agente Proxy (Evaluador de NLQ)
+### Proxy Agent (NLQ Evaluator)
 
-El Agente Proxy es el primer componente del sistema que interactúa con las consultas en lenguaje natural (NLQ) proporcionadas por el usuario. Su función principal es evaluar la relevancia de estas consultas para determinar si son aptas para ser traducidas a SQL. Este agente utiliza un modelo de lenguaje avanzado (GPT-3.5) para clasificar las consultas en una escala del 1 al 5, donde 1 indica irrelevancia total y 5 máxima relevancia.
+The Proxy Agent is the first system component that interacts with the user's natural language queries (NLQ). Its primary function is to evaluate the relevance of these queries to determine if they are suitable for translation into SQL. This agent uses an advanced language model (GPT-3.5) to classify queries on a scale of 1 to 5, where 1 indicates total irrelevance and 5 indicates maximum relevance.
 
-La implementación del Agente Proxy ha demostrado una tasa de precisión del 95%.
+The Proxy Agent implementation has demonstrated a 95% accuracy rate.
 
-### Agente Selector (Selección de Tablas)
+### Selector Agent (Table Selection)
 
-Una vez que el Agente Proxy ha identificado una consulta relevante, el siguiente paso en el proceso es la selección de tablas, que es realizada por el Agente Selector. Este agente tiene la responsabilidad de identificar las tablas de la base de datos que son más relevantes para la consulta SQL que se va a generar.
+Once the Proxy Agent has identified a relevant query, the next step in the process is table selection, which is performed by the Selector Agent. This agent is responsible for identifying the database tables most relevant to the SQL query being generated.
 
-El Agente Selector emplea dos enfoques distintos para llevar a cabo esta tarea:
+The Selector Agent employs two distinct approaches to accomplish this task:
 
-1.  **Enfoque basado en modelo de lenguaje avanzado (Opción 1)**: Este enfoque utiliza un modelo de lenguaje, como GPT-3.5, para identificar las tablas más relevantes basándose en la entrada proporcionada por el usuario. Este método es altamente preciso pero también más costoso en términos de procesamiento y uso de recursos.
-2.  **Enfoque semántico con cercanía por coseno (Opción 2)**: Este enfoque combina técnicas de procesamiento semántico con la cercanía por coseno para identificar las tablas relevantes. Aunque es menos costoso y más rápido que el enfoque basado en modelos de lenguaje, puede no ser tan preciso en todos los casos ya que siempre devolverá `k` tablas relevantes y puede haber casos en los que se necesiten más de `k` tablas.
+1.  **Language model-based approach (Option 1)**: This approach uses a language model, like GPT-3.5, to identify the most relevant tables based on the user's input. This method is highly accurate but also more costly in terms of processing and resource usage.
+2.  **Semantic approach with cosine similarity (Option 2)**: This approach combines semantic processing techniques with cosine similarity to identify relevant tables. Although it is less costly and faster than the language model-based approach, it may not be as accurate in all cases since it will always return `k` relevant tables, and there may be cases where more than `k` tables are needed.
 
-Ambos enfoques han demostrado ser efectivos en la identificación de tablas, con resultados comparables en las pruebas realizadas. La elección entre estos dos enfoques dependerá de las necesidades específicas del usuario, incluyendo factores como el costo, el tiempo de ejecución, precisión, complejidad de la consulta o el número de tablas en la base de datos.
+Both approaches have proven effective in table identification, with comparable results in tests. The choice between these two approaches will depend on the user's specific needs, including factors like cost, execution time, accuracy, query complexity, or the number of tables in the database.
 
-### Agentes Analistas (Iteración y Corrección)
+### Analyst Agents (Iteration and Correction)
 
-Una vez que las tablas relevantes han sido seleccionadas, el siguiente paso es la generación y ejecución de la consulta SQL. Este proceso es realizado por un equipo de agentes analistas, que incluyen:
+Once the relevant tables have been selected, the next step is SQL query generation and execution. This process is carried out by a team of analyst agents, which include:
 
-1.  _**Data Engineer Agent**_ **(**_**SQL Coder**_**)**: Este agente es responsable de la generación inicial de la consulta SQL basándose en las especificaciones proporcionadas por el usuario y las tablas seleccionadas. El agente se asegura de que la consulta generada esté estructurada correctamente y no contenga errores básicos de sintaxis o referencias incorrectas.
-2.  _**Sr Data Analyst Agent**_: Este agente ejecuta la consulta SQL generada por el _Data Engineer Agent_ y verifica su corrección. Si se detectan errores, como resultados inesperados o vacíos, el _Sr Data Analyst Agent_ inicia un proceso iterativo de corrección, enviando _feedback_ al _Data Engineer Agent_ para ajustar la consulta hasta que se obtenga un resultado correcto.
+1.  _**Data Engineer Agent**_ **(**_**SQL Coder**_**)**: This agent is responsible for the initial SQL query generation based on the user's specifications and the selected tables. The agent ensures that the generated query is correctly structured and free of basic syntax errors or incorrect references.
+2.  _**Sr Data Analyst Agent**_: This agent executes the SQL query generated by the _Data Engineer Agent_ and verifies its correctness. If errors are detected, such as unexpected or empty results, the _Sr Data Analyst Agent_ initiates an iterative correction process, sending feedback to the _Data Engineer Agent_ to adjust the query until a correct result is obtained.
 
-El proceso iterativo de corrección ha demostrado ser altamente efectivo, alcanzando una precisión del 95% después de dos iteraciones en las pruebas realizadas. 
+The iterative correction process has proven highly effective, reaching 95% accuracy after two iterations in tests conducted. 
 
-> El modelo del agente **Data Engineer Agent (SQL Coder)** puede ser cambiado desde la GUI.
+> The **Data Engineer Agent (SQL Coder)** model can be changed from the GUI.
 > 
-> Admite modelos **pequeños** alojados en HuggingFace.
+> It supports **small** models hosted on HuggingFace.
 > 
-> Por defecto, si no se aplica ningún modelo usará GPT 3.5.
+> By default, if no model is applied, it will use GPT 3.5.
 
-### Agente Explorer (Generador de _Insights_)
+### Explorer Agent (Insights Generator)
 
-Además de generar y ejecutar consultas SQL, el sistema también incluye un Agente Explorer, cuyo objetivo es generar _insights_ adicionales a partir de los resultados obtenidos. Este agente utiliza un modelo de lenguaje avanzado (GPT-4 en las pruebas realizadas) para identificar patrones y tendencias en los datos que pueden no ser evidentes en la consulta original.
+In addition to generating and executing SQL queries, the system also includes an Explorer Agent, whose goal is to generate additional insights from the obtained results. This agent uses an advanced language model (GPT-4 in tests) to identify patterns and trends in the data that may not be evident in the original query.
 
-El Agente Explorer genera nuevas consultas SQL basadas en la consulta original y proporciona _insights_ que pueden ser de gran valor para el usuario. 
+The Explorer Agent generates new SQL queries based on the original query and provides insights that can be of great value to the user. 
 
-Aunque el uso del Agente Explorer puede incrementar significativamente el costo de la operación (especialmente al utilizar modelos avanzados como GPT-4), también ofrece un valor añadido considerable al proporcionar información adicional. Para reducir los costos, se recomienda el uso de modelos menos costosos como GPT-3 para este agente, dependiendo de las necesidades específicas del proyecto.
+While using the Explorer Agent may significantly increase operational costs (especially when using advanced models like GPT-4), it also offers considerable added value by providing additional information. To reduce costs, it is recommended to use less expensive models like GPT-3 for this agent, depending on the project's specific needs.
 
-> La generación de insights puede ser desactivada desde la GUI.
+> Insight generation can be disabled from the GUI.
 
-## Requisitos
+## Requirements
 
-Para acceder a los modelos de lenguaje utilizados en el sistema, se requiere una clave API de OpenAI. Esta clave API es necesaria para autenticar las solicitudes a la API de OpenAI y permitir el uso de modelos como GPT-3.5 y GPT-4.
+To access the language models used in the system, an OpenAI API key is required. This API key is necessary to authenticate requests to the OpenAI API and enable the use of models like GPT-3.5 and GPT-4.
 
-Para poner otros modelos necesitarás la clave API de HuggingFace (opcional) pero la necesitarás para la Opción 2 de selección de tablas.
+For other models, you'll need the HuggingFace API key (optional), but you'll need it for Option 2 of table selection.
 
-## Aplicación
+## Application
 
-La interfaz de usuario ha sido diseñada con un enfoque en la usabilidad y accesibilidad, permitiendo a los usuarios interactuar con el sistema de manera fluida y eficiente. La aplicación web se ha desarrollado utilizando Django para el backend y Vue.js con Vite para el frontend, lo que proporciona una arquitectura moderna y reactiva.
+The user interface is designed with a focus on usability and accessibility, allowing users to interact with the system smoothly and efficiently. The web application has been developed using Django for the backend and Vue.js with Vite for the frontend, providing a modern and reactive architecture.
 
-### Backend en Django
+### Backend in Django
 
-El _backend_, desarrollado en Django, gestiona las interacciones con la base de datos y los modelos de lenguaje. Utiliza Django REST Framework para exponer las APIs necesarias que interactúan con los agentes y procesan las consultas del usuario.
+The backend, developed in Django, handles interactions with the database and language models. It uses Django REST Framework to expose the necessary APIs that interact with the agents and process user queries.
 
-### Frontend en Vue.js con Vite
+### Frontend in Vue.js with Vite
 
-El _frontend_ ha sido desarrollado utilizando Vue.js, un _framework_ progresivo de JavaScript que facilita la construcción de interfaces de usuario interactivas. Vite, una herramienta de compilación rápida, se ha utilizado para optimizar el desarrollo del frontend, proporcionando una experiencia de desarrollo más ágil y eficiente.
+The frontend has been developed using Vue.js, a progressive JavaScript framework that facilitates building interactive user interfaces. Vite, a fast build tool, has been used to optimize frontend development, providing a more agile and efficient development experience.
 
-La interfaz incluye varias páginas y componentes clave:
+The interface includes several key pages and components:
 
-*   **Página de Chat**: Permite introducir consultas en lenguaje natural y ver las respuestas generadas.
-*   **Página de Configuración**: Ofrece opciones para personalizar el comportamiento del sistema y la conexión a la base de datos.
+*   **Chat Page**: Allows users to input natural language queries and view generated responses.
+*   **Settings Page**: Offers options to customize the system's behavior and database connection.
 
-## Instrucciones de Uso
+## Usage Instructions
 
-### Manual (sin Docker)
+### Manual (without Docker)
 
-Para utilizar el sistema, siga los pasos a continuación:
+To use the system, follow the steps below:
 
-1.  **Clonar el repositorio**
+1.  **Clone the repository**
     
     ```bash
     git clone https://github.com/pablosierrafernandez/DataWhisper-Arquitectura-basada-en-Agentes-para-text-to-sql.git
     ```
     
-2.  **Configurar el** _**backend**_
-    1.  Entorno Virtual
+2.  **Set up the backend**
+    1.  Virtual Environment
         
         ```bash
         cd DataWhisper-Arquitectura-basada-en-Agentes-para-text-to-sql
         cd back
-        python -m venv env . # crear entorno virtual
+        python -m venv env . # create virtual environment
         source env/bin/activate  # Linux/MacOS
         source env\Scripts\activate  # Windows
         pip install -r requirements.txt
         ```
         
-    2.  Migraciones
+    2.  Migrations
         
         ```bash
-        # en back/
+        # in back/
         python manage.py migrate
         ```
         
-3.  **Configurar el frontend**
+3.  **Set up the frontend**
     
-    Deberás tener instalado [Node.js](https://nodejs.org/en) de antemano
+    You need to have [Node.js](https://nodejs.org/en) installed beforehand
     
     ```bash
-    # en front
+    # in front
     npm install
     ```
     
-4.  **Levantar los servicios**
+4.  **Start the services**
     
     ```bash
-    # en back
+    # in back
     python manage.py runserver
     ```
     
     ```bash
-    # en front
+    # in front
     npm run dev
     ```
     
-5.  **Acceder a la aplicación** 
+5.  **Access the application** 
     
-    Abre el navegador y ve a `http://localhost:5173` para acceder a la interfaz de usuario.
+    Open your browser and go to `http://localhost:5173` to access the user interface.
     
 
-### Automático
+### Automatic
 
-1.  **Clonar el repositorio**
+1.  **Clone the repository**
     
     ```bash
     git clone https://github.com/pablosierrafernandez/DataWhisper-Arquitectura-basada-en-Agentes-para-text-to-sql.git
     ```
     
-2.  **Levantar los contenedores**
+2.  **Start the containers**
     
-    Deberás tener instalado [Docker y Docker Compose](https://www.docker.com/).
+    You should have [Docker and Docker Compose](https://www.docker.com/) installed.
     
     ```bash
     docker-compose up --build
     ```
     
-3.  **Acceder a la aplicación**: 
+3.  **Access the application**: 
     
-    Abre el navegador y ve a `http://localhost:5173` para acceder a la interfaz de usuario.
+    Open your browser and go to `http://localhost:5173` to access the user interface.
     
 
-## Contribución
+## Contribution
 
-Las contribuciones son bienvenidas. Si tienes sugerencias de mejoras, nuevas funcionalidades o encuentra algún problema, por favor abre un _issue_ o envía un _pull request_.
+Contributions are welcome. If you have suggestions for improvements, new features, or find any issues, please open an issue or submit a pull request.
 
-## Licencia
+## License
 
-Este proyecto está bajo la licencia [MIT](LICENSE).  
-Consulta el archivo `LICENSE` para más detalles.
+This project is licensed under the [MIT License](LICENSE).  
+Check the `LICENSE` file for more details.
 
-## Autores
+## Authors
 
-*   [@pablosierrafernandez](https://github.com/pablosierrafernandez): Investigador y desarrollador del proyecto.
+*   [@pablosierrafernandez](https://github.com/pablosierrafernandez): Project researcher and developer.
 
-En colaboración con:
+In collaboration with:
 
-| Logo | Entidad | Descripción |
+| Logo | Entity | Description |
 | --- | --- | --- |
-| ![urv-centrat-color (1)](https://github.com/user-attachments/assets/90bda3f7-7e0f-4e4e-908b-238c6f85c3a7) | [Universitat Rovira i Virgili](https://www.urv.cat) | Institución de educación superior ubicada en Tarragona, España, conocida por su excelencia académica e investigación multidisciplinaria. |
+| ![urv-centrat-color (1)](https://github.com/user-attachments/assets/90bda3f7-7e0f-4e4e-908b-238c6f85c3a7) | [Universitat Rovira i Virgili](https://www.urv.cat) | A higher education institution located in Tarragona, Spain, known for its academic excellence and multidisciplinary research. |
