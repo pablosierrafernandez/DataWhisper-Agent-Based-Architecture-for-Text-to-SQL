@@ -24,9 +24,7 @@ https://github.com/user-attachments/assets/052d7e0c-c3a0-42be-b2a5-287801852849
 
 ![](https://img.shields.io/badge/URV-Universitat_Rovira_i_Virgili-red)
 
-Here's the translation to English:
 
-Here's the translation to English:
 
 ## Index
 
